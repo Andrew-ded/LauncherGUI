@@ -1,4 +1,4 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using LauncherGUI.Services;
@@ -7,6 +7,9 @@ using LauncherGUI.Views;
 
 namespace LauncherGUI;
 
+/// <summary>
+/// Root Avalonia application object.
+/// </summary>
 public partial class App : Application
 {
     public override void Initialize()
@@ -19,7 +22,17 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var configService = new AppConfigService();
-            var viewModel = new MainWindowViewModel(configService.Load());
+            var installationService = new AppInstallationService();
+            var launchService = new AppLaunchService();
+            var userSettingsService = new UserSettingsService();
+            var userSettings = userSettingsService.Load();
+
+            var viewModel = new MainWindowViewModel(
+                configService.Load(),
+                installationService,
+                launchService,
+                userSettings,
+                userSettingsService);
 
             desktop.MainWindow = new MainWindow
             {

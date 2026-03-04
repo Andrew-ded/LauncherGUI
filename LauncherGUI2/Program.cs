@@ -1,22 +1,26 @@
-﻿using System;
+using System;
 using Avalonia;
 
-namespace LauncherGUI
-{
-    internal class Program
-    {
-        // Initialization code. Don't use any Avalonia, third-party APIs or any
-        // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-        // yet and stuff might break.
-        [STAThread]
-        public static void Main(string[] args) => BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+namespace LauncherGUI;
 
-        // Avalonia configuration, don't remove; also used by visual designer.
-        public static AppBuilder BuildAvaloniaApp()
-            => AppBuilder.Configure<App>()
-                .UsePlatformDetect()
-                .WithInterFont()
-                .LogToTrace();
-    }
+/// <summary>
+/// Точка входа в приложение и базовая настройка Avalonia.
+/// </summary>
+internal static class Program
+{
+    /// <summary>
+    /// Запускает приложение в классическом desktop режиме.
+    /// </summary>
+    [STAThread]
+    public static void Main(string[] args) => BuildAvaloniaApp()
+        .StartWithClassicDesktopLifetime(args);
+
+    /// <summary>
+    /// Создает и настраивает <see cref="AppBuilder"/> для runtime и дизайнера.
+    /// </summary>
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .WithInterFont()
+            .LogToTrace();
 }
