@@ -18,152 +18,156 @@
         ExtendClientAreaTitleBarHeightHint="44"
         mc:Ignorable="d">
 
-  <Window.Resources>
-    <!--
+	<Window.Resources>
+		<!--
       Тема окна через словари по вариантам (Dark/Light).
       Все основные цвета страницы берутся только отсюда.
     -->
-    <ResourceDictionary>
-      <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Dark">
-          <SolidColorBrush x:Key="AppBackgroundBrush" Color="#1E1F25"/>
-          <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#25262D"/>
-          <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#23242B"/>
-          <SolidColorBrush x:Key="CardBackgroundBrush" Color="#23242B"/>
-          <SolidColorBrush x:Key="CardHoverBrush" Color="#202026"/>
-          <SolidColorBrush x:Key="CatalogCardBackgroundBrush" Color="#1F2330"/>
-          <SolidColorBrush x:Key="NavHoverBrush" Color="#252935"/>
-          <SolidColorBrush x:Key="NavActiveBrush" Color="#2C4EA7"/>
-          <SolidColorBrush x:Key="NavIconBrush" Color="#FFFFFF"/>
-          <SolidColorBrush x:Key="NavIconActiveBrush" Color="#FFFFFF"/>
-          <SolidColorBrush x:Key="TextPrimaryBrush" Color="#FFFFFF"/>
-          <SolidColorBrush x:Key="TextMutedBrush" Color="#D9DDE7"/>
-          <SolidColorBrush x:Key="AccentBrush" Color="#2C4EA7"/>
-          <SolidColorBrush x:Key="DangerBrush" Color="#DF3030"/>
-          <SolidColorBrush x:Key="WindowCloseHoverBrush" Color="#DF3030"/>
-          <SolidColorBrush x:Key="InstallingOverlayBrush" Color="#9A1A1C22"/>
-          <SolidColorBrush x:Key="UnavailableOverlayBrush" Color="#B6111318"/>
-          <SolidColorBrush x:Key="InputBackgroundBrush" Color="#2A2D36"/>
-          <SolidColorBrush x:Key="InputBorderBrush" Color="#3B4353"/>
-          <SolidColorBrush x:Key="InputFocusBorderBrush" Color="#4A6FD1"/>
-          <SolidColorBrush x:Key="InputForegroundBrush" Color="#FFFFFF"/>
-        </ResourceDictionary>
+		<ResourceDictionary>
+			<ResourceDictionary.ThemeDictionaries>
+				<ResourceDictionary x:Key="Dark">
+					<SolidColorBrush x:Key="AppBackgroundBrush" Color="#1E1F25"/>
+					<SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#25262D"/>
+					<SolidColorBrush x:Key="PanelBackgroundBrush" Color="#23242B"/>
+					<SolidColorBrush x:Key="CardBackgroundBrush" Color="#23242B"/>
+					<SolidColorBrush x:Key="CardHoverBrush" Color="#202026"/>
+					<SolidColorBrush x:Key="CatalogCardBackgroundBrush" Color="#1F2330"/>
+					<SolidColorBrush x:Key="NavHoverBrush" Color="#252935"/>
+					<SolidColorBrush x:Key="NavActiveBrush" Color="#2C4EA7"/>
+					<SolidColorBrush x:Key="NavIconBrush" Color="#FFFFFF"/>
+					<SolidColorBrush x:Key="NavIconActiveBrush" Color="#FFFFFF"/>
+					<SolidColorBrush x:Key="TextPrimaryBrush" Color="#FFFFFF"/>
+					<SolidColorBrush x:Key="TextMutedBrush" Color="#D9DDE7"/>
+					<SolidColorBrush x:Key="AccentBrush" Color="#2C4EA7"/>
+					<SolidColorBrush x:Key="DangerBrush" Color="#DF3030"/>
+					<SolidColorBrush x:Key="WindowCloseHoverBrush" Color="#DF3030"/>
+					<SolidColorBrush x:Key="InstallingOverlayBrush" Color="#9A1A1C22"/>
+					<SolidColorBrush x:Key="UnavailableOverlayBrush" Color="#B6111318"/>
+					<SolidColorBrush x:Key="InputBackgroundBrush" Color="#2A2D36"/>
+					<SolidColorBrush x:Key="InputBorderBrush" Color="#3B4353"/>
+					<SolidColorBrush x:Key="InputFocusBorderBrush" Color="#4A6FD1"/>
+					<SolidColorBrush x:Key="InputForegroundBrush" Color="#FFFFFF"/>
+				</ResourceDictionary>
 
-        <ResourceDictionary x:Key="Light">
-          <SolidColorBrush x:Key="AppBackgroundBrush" Color="#DCE3EF"/>
-          <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#C9D4E6"/>
-          <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#E2ECFF"/>
-          <SolidColorBrush x:Key="CardBackgroundBrush" Color="#EAF2FF"/>
-          <SolidColorBrush x:Key="CardHoverBrush" Color="#DCE9FF"/>
-          <SolidColorBrush x:Key="CatalogCardBackgroundBrush" Color="#E5EEFF"/>
-          <SolidColorBrush x:Key="NavHoverBrush" Color="#DCE5F8"/>
-          <SolidColorBrush x:Key="NavActiveBrush" Color="#2C4EA7"/>
-          <SolidColorBrush x:Key="NavIconBrush" Color="#667AA3"/>
-          <SolidColorBrush x:Key="NavIconActiveBrush" Color="#EAF3FF"/>
-          <SolidColorBrush x:Key="TextPrimaryBrush" Color="#1B2230"/>
-          <SolidColorBrush x:Key="TextMutedBrush" Color="#3E4A5F"/>
-          <SolidColorBrush x:Key="AccentBrush" Color="#2C4EA7"/>
-          <SolidColorBrush x:Key="DangerBrush" Color="#C73232"/>
-          <SolidColorBrush x:Key="WindowCloseHoverBrush" Color="#D84040"/>
-          <SolidColorBrush x:Key="InstallingOverlayBrush" Color="#99D7DFEF"/>
-          <SolidColorBrush x:Key="UnavailableOverlayBrush" Color="#B3CBD3E4"/>
-          <SolidColorBrush x:Key="InputBackgroundBrush" Color="#EAF1FF"/>
-          <SolidColorBrush x:Key="InputBorderBrush" Color="#CAD4E8"/>
-          <SolidColorBrush x:Key="InputFocusBorderBrush" Color="#2C4EA7"/>
-          <SolidColorBrush x:Key="InputForegroundBrush" Color="#1B2230"/>
-        </ResourceDictionary>
-      </ResourceDictionary.ThemeDictionaries>
-    </ResourceDictionary>
-  </Window.Resources>
+				<ResourceDictionary x:Key="Light">
+					<SolidColorBrush x:Key="AppBackgroundBrush" Color="#DCE3EF"/>
+					<SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#C9D4E6"/>
+					<SolidColorBrush x:Key="PanelBackgroundBrush" Color="#E2ECFF"/>
+					<SolidColorBrush x:Key="CardBackgroundBrush" Color="#EAF2FF"/>
+					<SolidColorBrush x:Key="CardHoverBrush" Color="#DCE9FF"/>
+					<SolidColorBrush x:Key="CatalogCardBackgroundBrush" Color="#E5EEFF"/>
+					<SolidColorBrush x:Key="NavHoverBrush" Color="#DCE5F8"/>
+					<SolidColorBrush x:Key="NavActiveBrush" Color="#2C4EA7"/>
+					<SolidColorBrush x:Key="NavIconBrush" Color="#667AA3"/>
+					<SolidColorBrush x:Key="NavIconActiveBrush" Color="#EAF3FF"/>
+					<SolidColorBrush x:Key="TextPrimaryBrush" Color="#1B2230"/>
+					<SolidColorBrush x:Key="TextMutedBrush" Color="#3E4A5F"/>
+					<SolidColorBrush x:Key="AccentBrush" Color="#2C4EA7"/>
+					<SolidColorBrush x:Key="DangerBrush" Color="#C73232"/>
+					<SolidColorBrush x:Key="WindowCloseHoverBrush" Color="#D84040"/>
+					<SolidColorBrush x:Key="InstallingOverlayBrush" Color="#99D7DFEF"/>
+					<SolidColorBrush x:Key="UnavailableOverlayBrush" Color="#B3CBD3E4"/>
+					<SolidColorBrush x:Key="InputBackgroundBrush" Color="#EAF1FF"/>
+					<SolidColorBrush x:Key="InputBorderBrush" Color="#CAD4E8"/>
+					<SolidColorBrush x:Key="InputFocusBorderBrush" Color="#2C4EA7"/>
+					<SolidColorBrush x:Key="InputForegroundBrush" Color="#1B2230"/>
+				</ResourceDictionary>
+			</ResourceDictionary.ThemeDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
 
-  <Window.Styles>
+	<Window.Styles>
 
-    <!-- Кнопки навигации в левом меню -->
-    <Style Selector="Button.NavButton">
-      <Setter Property="Width" Value="48"/>
-      <Setter Property="Height" Value="48"/>
-      <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="BorderThickness" Value="0"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="0"/>
-      <Setter Property="HorizontalAlignment" Value="Center"/>
-      <Setter Property="VerticalAlignment" Value="Center"/>
-      <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-      <Setter Property="RenderTransform">
-        <ScaleTransform ScaleX="1" ScaleY="1"/>
-      </Setter>
-      <Setter Property="Transitions">
-        <Transitions>
-          <BrushTransition Property="Background" Duration="0:0:0.16"/>
-          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.16"/>
-          <DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
-        </Transitions>
-      </Setter>
-    </Style>
+		<!-- Кнопки навигации в левом меню -->
+		<Style Selector="Button.NavButton">
+			<Setter Property="Width" Value="48"/>
+			<Setter Property="Height" Value="48"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+			<Setter Property="RenderTransform">
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+			</Setter>
+			<Setter Property="Transitions">
+				<Transitions>
+					<BrushTransition Property="Background" Duration="0:0:0.16"/>
+					<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.16"/>
+					<DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
+				</Transitions>
+			</Setter>
+		</Style>
 
-    <Style Selector="Button.NavButton:pointerover">
-      <Setter Property="Background" Value="{DynamicResource NavHoverBrush}"/>
-      <Setter Property="RenderTransform" Value="scale(1.03)"/>
-    </Style>
+		<Style Selector="Button.NavButton:pointerover">
+			<Setter Property="Background" Value="{DynamicResource NavHoverBrush}"/>
+			<Setter Property="RenderTransform" Value="scale(1.03)"/>
+		</Style>
 
-    <Style Selector="Button.NavButton:pressed">
-      <Setter Property="RenderTransform" Value="scale(0.98)"/>
-    </Style>
+		<Style Selector="Button.NavButton:pressed">
+			<Setter Property="RenderTransform" Value="scale(0.98)"/>
+		</Style>
 
-    <Style Selector="Button.NavButton.Active">
-      <Setter Property="Background" Value="{DynamicResource NavActiveBrush}"/>
-    </Style>
+		<Style Selector="Button.NavButton.Active">
+			<Setter Property="Background" Value="{DynamicResource NavActiveBrush}"/>
+		</Style>
 
-    <!-- Базовый цвет иконки в кнопках секций -->
-    <Style Selector="Button.NavButton PathIcon">
-      <Setter Property="Foreground" Value="{DynamicResource NavIconBrush}"/>
-    </Style>
+		<!-- Базовый цвет иконки в кнопках секций -->
+		<Style Selector="Button.NavButton PathIcon">
+			<Setter Property="Foreground" Value="{DynamicResource NavIconBrush}"/>
+		</Style>
 
-    <!-- Иконка активной кнопки секции -->
-    <Style Selector="Button.NavButton.Active PathIcon">
-      <Setter Property="Foreground" Value="{DynamicResource NavIconActiveBrush}"/>
-    </Style>
+		<!-- Иконка активной кнопки секции -->
+		<Style Selector="Button.NavButton.Active PathIcon">
+			<Setter Property="Foreground" Value="{DynamicResource NavIconActiveBrush}"/>
+		</Style>
 
-    <!-- Кнопка контекстного меню карточки приложения -->
-    <Style Selector="Button.CardMenuButton">
-      <Setter Property="Width" Value="30"/>
-      <Setter Property="Height" Value="30"/>
-      <Setter Property="Padding" Value="0"/>
-      <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="BorderThickness" Value="0"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="HorizontalAlignment" Value="Right"/>
-      <Setter Property="VerticalAlignment" Value="Top"/>
-      <Setter Property="Transitions">
-        <Transitions>
-          <BrushTransition Property="Background" Duration="0:0:0.16"/>
-          <DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
-        </Transitions>
-      </Setter>
-    </Style>
+		<!-- Кнопка контекстного меню карточки приложения -->
+		<Style Selector="Button.CardMenuButton">
+			<Setter Property="Width" Value="30"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="HorizontalAlignment" Value="Right"/>
+			<Setter Property="VerticalAlignment" Value="Top"/>
+			<Setter Property="Transitions">
+				<Transitions>
+					<BrushTransition Property="Background" Duration="0:0:0.16"/>
+					<DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
+				</Transitions>
+			</Setter>
+		</Style>
 
-    <Style Selector="Button.CardMenuButton:pointerover">
-      <Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
-    </Style>
+		<Style Selector="Button.CardMenuButton:pointerover">
+			<Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+		</Style>
 
-    <!-- Общий стиль карточки приложения -->
-    <Style Selector="Border.AppCardBorder">
-      <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-      <Setter Property="RenderTransform">
-        <ScaleTransform ScaleX="1" ScaleY="1"/>
-      </Setter>
-      <Setter Property="Transitions">
-        <Transitions>
-          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.16"/>
-          <BrushTransition Property="Background" Duration="0:0:0.16"/>
-          <DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
-        </Transitions>
-      </Setter>
-    </Style>
+		<!-- Общий стиль карточки приложения -->
+		<Style Selector="Border.AppCardBorder">
+			<Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+			<Setter Property="RenderTransform">
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+			</Setter>
+			<Setter Property="Transitions">
+				<Transitions>
+					<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.16"/>
+					<BrushTransition Property="Background" Duration="0:0:0.16"/>
+					<DoubleTransition Property="Opacity" Duration="0:0:0.16"/>
+				</Transitions>
+			</Setter>
+		</Style>
 
-    <Style Selector="Border.AppCardBorder:pointerover">
-      <Setter Property="RenderTransform" Value="scale(1.015)"/>
-      <Setter Property="Background" Value="{DynamicResource CardHoverBrush}"/>
+		<Style Selector="Border.AppCardBorder:pointerover">
+			<Setter Property="RenderTransform" Value="scale(1.015)"/>
+			<Setter Property="Background" Value="{DynamicResource CardHoverBrush}"/>
+		</Style>
+
+    <Style Selector="Border.CardSurface.Catalog">
+      <Setter Property="Background" Value="{DynamicResource CatalogCardBackgroundBrush}"/>
     </Style>
 
     <Style Selector="Border.CardSurface.Catalog">
@@ -175,212 +179,187 @@
       <Setter Property="Opacity" Value="0.9"/>
     </Style>
 
-    <!-- Тело карточки: установка в процессе (только контент, не индикатор) -->
-    <Style Selector="Grid.CatalogCardBody.Installing">
-      <Setter Property="Opacity" Value="0.78"/>
-      <Setter Property="Effect">
-        <BlurEffect Radius="5.5"/>
-      </Setter>
-    </Style>
+		<!-- Тело карточки: установка в процессе (только контент, не индикатор) -->
+		<Style Selector="Grid.CatalogCardBody.Installing">
+			<Setter Property="Opacity" Value="0.78"/>
+			<Setter Property="Effect">
+				<BlurEffect Radius="5.5"/>
+			</Setter>
+		</Style>
 
-    <!-- Тело карточки: недоступно -->
-    <Style Selector="Grid.CatalogCardBody.Unavailable">
-      <Setter Property="Opacity" Value="0.7"/>
-      <Setter Property="Effect">
-        <BlurEffect Radius="3.4"/>
-      </Setter>
-    </Style>
+		<!-- Тело карточки: недоступно -->
+		<Style Selector="Grid.CatalogCardBody.Unavailable">
+			<Setter Property="Opacity" Value="0.7"/>
+			<Setter Property="Effect">
+				<BlurEffect Radius="3.4"/>
+			</Setter>
+		</Style>
 
-    <!-- Основная кнопка действия -->
-    <Style Selector="Button.LaunchButton">
-      <Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
-      <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-      <Setter Property="BorderThickness" Value="0"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="10,6"/>
-      <Setter Property="HorizontalAlignment" Value="Stretch"/>
-    </Style>
-    <Style Selector="Button.DeleteButton">
-      <Setter Property="Background" Value="#F20"/>
-      <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-      <Setter Property="BorderThickness" Value="0"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="10,6"/>
-      <Setter Property="HorizontalAlignment" Value="Stretch"/>
-    </Style>
+		<!-- Основная кнопка действия -->
+		<Style Selector="Button.LaunchButton">
+			<Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+			<Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="10,6"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+		<Style Selector="Button.DeleteButton">
+			<Setter Property="Background" Value="#F20"/>
+			<Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="10,6"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
 
-    <!-- Мягкий стиль полей настроек -->
-    <Style Selector="TextBox.SettingsInput, ComboBox.SettingsInput">
-      <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
-      <Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}"/>
-      <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
-      <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="10,7"/>
-    </Style>
+		<!-- Мягкий стиль полей настроек -->
+		<Style Selector="TextBox.SettingsInput, ComboBox.SettingsInput">
+			<Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+			<Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Padding" Value="10,7"/>
+		</Style>
 
-    <Style Selector="TextBox.SettingsInput:focus, ComboBox.SettingsInput:focus">
-      <Setter Property="BorderBrush" Value="{DynamicResource InputFocusBorderBrush}"/>
-    </Style>
+		<Style Selector="TextBox.SettingsInput:focus, ComboBox.SettingsInput:focus">
+			<Setter Property="BorderBrush" Value="{DynamicResource InputFocusBorderBrush}"/>
+		</Style>
 
-    <!-- Кнопки управления окном -->
-    <Style Selector="Button.WindowControlButton">
-      <Setter Property="Width" Value="36"/>
-      <Setter Property="Height" Value="28"/>
-      <Setter Property="Padding" Value="0"/>
-      <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="BorderThickness" Value="0"/>
-      <Setter Property="CornerRadius" Value="6"/>
-      <Setter Property="Transitions">
-        <Transitions>
-          <BrushTransition Property="Background" Duration="0:0:0.14"/>
-        </Transitions>
-      </Setter>
-    </Style>
+		<!-- Кнопки управления окном -->
+		<Style Selector="Button.WindowControlButton">
+			<Setter Property="Width" Value="36"/>
+			<Setter Property="Height" Value="28"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="6"/>
+			<Setter Property="Transitions">
+				<Transitions>
+					<BrushTransition Property="Background" Duration="0:0:0.14"/>
+				</Transitions>
+			</Setter>
+		</Style>
 
-    <Style Selector="Button.WindowControlButton:not(.CloseButton):pointerover">
-      <Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
-    </Style>
+		<Style Selector="Button.WindowControlButton:not(.CloseButton):pointerover">
+			<Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+		</Style>
 
-    <Style Selector="Button.CloseButton:pointerover">
-      <Setter Property="Background" Value="{DynamicResource WindowCloseHoverBrush}"/>
-    </Style>
+		<Style Selector="Button.CloseButton:pointerover">
+			<Setter Property="Background" Value="{DynamicResource WindowCloseHoverBrush}"/>
+		</Style>
 
-  </Window.Styles>
+	</Window.Styles>
 
-  <!-- Корневой контейнер окна -->
-  <Grid Background="{DynamicResource AppBackgroundBrush}">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="84"/>
-      <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
+	<!-- Корневой контейнер окна -->
+	<Grid Background="{DynamicResource AppBackgroundBrush}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="84"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
 
-    <Border Grid.Column="0"
-            Background="{DynamicResource SidebarBackgroundBrush}"
-            Padding="12,18"
-            CornerRadius="0,10,10,0">
-      <Grid RowDefinitions="Auto,*">
-        <StackPanel Grid.Row="0" Spacing="12" HorizontalAlignment="Center">
-          <Button Classes="NavButton"
-                  Classes.Active="{Binding IsApplicationsSectionSelected}"
-                  Command="{Binding SwitchSectionCommand}"
-                  CommandParameter="applications"
-                  ToolTip.Tip="Приложения">
-            <PathIcon Width="26" Height="26"
-                      Data="M3 3h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm12 0h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1ZM3 15h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1Zm12 0h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1Z"/>
-          </Button>
+		<Border Grid.Column="0"
+				Background="{DynamicResource SidebarBackgroundBrush}"
+				Padding="12,18"
+				CornerRadius="0,10,10,0">
+			<Grid RowDefinitions="Auto,*">
+				<StackPanel Grid.Row="0" Spacing="12" HorizontalAlignment="Center">
+					<Button Classes="NavButton"
+							Classes.Active="{Binding IsApplicationsSectionSelected}"
+							Command="{Binding SwitchSectionCommand}"
+							CommandParameter="applications"
+							ToolTip.Tip="Приложения">
+						<PathIcon Width="26" Height="26"
+								  Data="M3 3h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm12 0h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1ZM3 15h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1Zm12 0h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1Z"/>
+					</Button>
 
-          <Button Classes="NavButton"
-                  Classes.Active="{Binding IsSecuritySectionSelected}"
-                  Command="{Binding SwitchSectionCommand}"
-                  CommandParameter="security"
-                  ToolTip.Tip="Безопасность">
-            <PathIcon Width="26" Height="26"
-                      Data="M12 2a4 4 0 0 1 4 4v2h.75A2.25 2.25 0 0 1 19 10.25v8.5A2.25 2.25 0 0 1 16.75 21h-9.5A2.25 2.25 0 0 1 5 18.75v-8.5A2.25 2.25 0 0 1 7.25 8H8V6a4 4 0 0 1 4-4Zm2.5 6V6a2.5 2.5 0 0 0-5 0v2h5Z"/>
-          </Button>
-        </StackPanel>
+					<Button Classes="NavButton"
+							Classes.Active="{Binding IsSecuritySectionSelected}"
+							Command="{Binding SwitchSectionCommand}"
+							CommandParameter="security"
+							ToolTip.Tip="Безопасность">
+						<PathIcon Width="26" Height="26"
+								  Data="M12 2a4 4 0 0 1 4 4v2h.75A2.25 2.25 0 0 1 19 10.25v8.5A2.25 2.25 0 0 1 16.75 21h-9.5A2.25 2.25 0 0 1 5 18.75v-8.5A2.25 2.25 0 0 1 7.25 8H8V6a4 4 0 0 1 4-4Zm2.5 6V6a2.5 2.5 0 0 0-5 0v2h5Z"/>
+					</Button>
+				</StackPanel>
 
-        <!-- Нижняя группа: синхронизация каталога и кнопка настроек -->
-        <StackPanel Grid.Row="1"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Spacing="10">
-          <!-- Кнопка пересборки JSON (пока только анимация вращения иконки) -->
-          <Button Classes="NavButton"
-                  Name="SyncCatalogButton"
-                  ToolTip.Tip="Собрать JSON каталог"
-                  Click="SyncCatalog_OnClick">
-            <Grid Width="26" Height="26">
-              <PathIcon Name="SyncCatalogIcon"
-                        Width="24"
-                        Height="24"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Data="M17.65 6.35a8 8 0 1 0 1.41 8.9 1 1 0 1 0-1.88-.66A6 6 0 1 1 12 6a5.94 5.94 0 0 1 4.24 1.76L14 10h6V4l-2.35 2.35Z" />
+				<!-- Нижняя группа: синхронизация каталога и кнопка настроек -->
+				<StackPanel Grid.Row="1"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Bottom"
+							Spacing="10">
+					<!-- Кнопка пересборки JSON (пока только анимация вращения иконки) -->
+					<Button Classes="NavButton"
+							Name="SyncCatalogButton"
+							ToolTip.Tip="Собрать JSON каталог"
+							Click="SyncCatalog_OnClick">
+						<Grid Width="26" Height="26">
+							<PathIcon Name="SyncCatalogIcon"
+									  Width="24"
+									  Height="24"
+									  HorizontalAlignment="Center"
+									  VerticalAlignment="Center"
+									  Data="M17.65 6.35a8 8 0 1 0 1.41 8.9 1 1 0 1 0-1.88-.66A6 6 0 1 1 12 6a5.94 5.94 0 0 1 4.24 1.76L14 10h6V4l-2.35 2.35Z" />
 
-              <!-- Индикатор обновления: заметная метка в углу иконки -->
-              <Border Width="10"
-                      Height="10"
-                      CornerRadius="5"
-                      Background="#FF4A"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Top"
-                      Margin="0,-1,-1,0">
-                <TextBlock Text="!"
-                           FontSize="8"
-                           FontWeight="Bold"
-                           Foreground="#FFFFFF"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-              </Border>
-            </Grid>
-          </Button>
+							<!-- Индикатор обновления: заметная метка в углу иконки -->
+							<Border Width="10"
+									Height="10"
+									CornerRadius="5"
+									Background="#FF4A"
+									HorizontalAlignment="Right"
+									VerticalAlignment="Top"
+									Margin="0,-1,-1,0">
+								<TextBlock Text="!"
+										   FontSize="8"
+										   FontWeight="Bold"
+										   Foreground="#FFFFFF"
+										   HorizontalAlignment="Center"
+										   VerticalAlignment="Center"/>
+							</Border>
+						</Grid>
+					</Button>
 
-          <Button Classes="NavButton"
-                  Classes.Active="{Binding IsSettingsSectionSelected}"
-                  Command="{Binding SwitchSectionCommand}"
-                  CommandParameter="settings"
-                  ToolTip.Tip="Настройки">
-            <PathIcon Width="26" Height="26"
-                      Data="M19.43 12.98c.04-.32.07-.65.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .11-.64l-2-3.46a.5.5 0 0 0-.5-.22l-2.49 1a7.03 7.03 0 0 0-1.7-.98l-.38-2.65a.5.5 0 0 0-.5-.43h-4a.5.5 0 0 0-.5.43l-.38 2.65c-.63.26-1.21.59-1.7.98l-2.49-1a.5.5 0 0 0-.6.22l-2 3.46a.5.5 0 0 0 .11.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98L2.93 14.6a.5.5 0 0 0-.11.64l2 3.46a.5.5 0 0 0 .6.22l2.49-1c.5.39 1.07.72 1.7.98l.38 2.65a.5.5 0 0 0 .5.43h4a.5.5 0 0 0 .5-.43l.38-2.65c.63-.26 1.21-.59 1.7-.98l2.49 1a.5.5 0 0 0 .6-.22l2-3.46a.5.5 0 0 0-.11-.64l-2.11-1.62ZM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
-          </Button>
-        </StackPanel>
-      </Grid>
-    </Border>
+					<Button Classes="NavButton"
+							Classes.Active="{Binding IsSettingsSectionSelected}"
+							Command="{Binding SwitchSectionCommand}"
+							CommandParameter="settings"
+							ToolTip.Tip="Настройки">
+						<PathIcon Width="26" Height="26"
+								  Data="M19.43 12.98c.04-.32.07-.65.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .11-.64l-2-3.46a.5.5 0 0 0-.5-.22l-2.49 1a7.03 7.03 0 0 0-1.7-.98l-.38-2.65a.5.5 0 0 0-.5-.43h-4a.5.5 0 0 0-.5.43l-.38 2.65c-.63.26-1.21.59-1.7.98l-2.49-1a.5.5 0 0 0-.6.22l-2 3.46a.5.5 0 0 0 .11.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98L2.93 14.6a.5.5 0 0 0-.11.64l2 3.46a.5.5 0 0 0 .6.22l2.49-1c.5.39 1.07.72 1.7.98l.38 2.65a.5.5 0 0 0 .5.43h4a.5.5 0 0 0 .5-.43l.38-2.65c.63-.26 1.21-.59 1.7-.98l2.49 1a.5.5 0 0 0 .6-.22l2-3.46a.5.5 0 0 0-.11-.64l-2.11-1.62ZM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
+					</Button>
+				</StackPanel>
+			</Grid>
+		</Border>
 
-    <Grid Grid.Column="1">
-      <Rectangle Fill="Transparent"
-                 Height="60"
-                 VerticalAlignment="Top"
-                 PointerPressed="TitleBar_OnPointerPressed"/>
+		<Grid Grid.Column="1">
+			<Rectangle Fill="Transparent"
+					   Height="60"
+					   VerticalAlignment="Top"
+					   PointerPressed="TitleBar_OnPointerPressed"/>
 
-      <TextBlock Text="ЯМЗ Лаунчер"
-                 HorizontalAlignment="Center"
-                 FontSize="24"
-                 FontWeight="SemiBold"
-                 Foreground="{DynamicResource TextPrimaryBrush}"
-                 Margin="0,20,0,4"/>
+			<TextBlock Text="ЯМЗ Лаунчер"
+					   HorizontalAlignment="Center"
+					   FontSize="24"
+					   FontWeight="SemiBold"
+					   Foreground="{DynamicResource TextPrimaryBrush}"
+					   Margin="0,20,0,4"/>
 
-      <ScrollViewer IsVisible="{Binding IsApplicationsSectionVisible}"
-                    VerticalScrollBarVisibility="Auto"
-                    Margin="0,50,0,0">
-        
-        <StackPanel Margin="32" Spacing="12">
-          <TextBlock Text="Установленные приложения"
-                     FontSize="22"
-                     FontWeight="SemiBold"
-                     Foreground="{DynamicResource TextPrimaryBrush}"/>
-          <ItemsControl ItemsSource="{Binding InstalledApplications}">
-            <ItemsControl.ItemsPanel>
-              <ItemsPanelTemplate>
-                <WrapPanel Orientation="Horizontal"/>
-              </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+			<ScrollViewer IsVisible="{Binding IsApplicationsSectionVisible}"
+						  VerticalScrollBarVisibility="Auto"
+						  Margin="0,50,0,0">
 
-            <ItemsControl.ItemTemplate>
-              <DataTemplate x:DataType="viewModels:AppCardViewModel">
-                <controls:AppCardControl />
-              </DataTemplate>
-            </ItemsControl.ItemTemplate>
-          </ItemsControl>
-        </StackPanel>
-      </ScrollViewer>
-
-      <ScrollViewer IsVisible="{Binding IsSecuritySectionVisible}"
-                    VerticalScrollBarVisibility="Auto"
-                    Margin="0,50,0,0">
-        <StackPanel Margin="32" Spacing="12">
-          <TextBlock Text="Доступно для установки"
-                     FontSize="22"
-                     FontWeight="SemiBold"
-                     Foreground="{DynamicResource TextPrimaryBrush}"/>
-
-          <ItemsControl ItemsSource="{Binding CatalogApplications}">
-            <ItemsControl.ItemsPanel>
-              <ItemsPanelTemplate>
-                <WrapPanel Orientation="Horizontal"/>
-              </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+				<StackPanel Margin="32" Spacing="12">
+					<TextBlock Text="Установленные приложения"
+							   FontSize="22"
+							   FontWeight="SemiBold"
+							   Foreground="{DynamicResource TextPrimaryBrush}"/>
+					<ItemsControl ItemsSource="{Binding InstalledApplications}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<WrapPanel Orientation="Horizontal"/>
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
               <DataTemplate x:DataType="viewModels:AppCardViewModel">
@@ -391,79 +370,104 @@
         </StackPanel>
       </ScrollViewer>
 
-      <ScrollViewer IsVisible="{Binding IsSettingsSectionVisible}"
-                    VerticalScrollBarVisibility="Auto"
-                    Margin="0,50,0,0">
-        <StackPanel Margin="32" Spacing="12">
-          <TextBlock Text="Настройки"
-                     FontSize="22"
-                     FontWeight="SemiBold"
-                     Foreground="{DynamicResource TextPrimaryBrush}"/>
+			<ScrollViewer IsVisible="{Binding IsSecuritySectionVisible}"
+						  VerticalScrollBarVisibility="Auto"
+						  Margin="0,50,0,0">
+				<StackPanel Margin="32" Spacing="12">
+					<TextBlock Text="Доступно для установки"
+							   FontSize="22"
+							   FontWeight="SemiBold"
+							   Foreground="{DynamicResource TextPrimaryBrush}"/>
 
-          <Border Background="{DynamicResource PanelBackgroundBrush}" CornerRadius="10" Padding="16">
-            <StackPanel Spacing="12">
-              <StackPanel Spacing="6">
-                <TextBlock Text="Тема"
-                           Foreground="{DynamicResource TextPrimaryBrush}"
-                           FontWeight="SemiBold"/>
-                <ComboBox Classes="SettingsInput"
-                          ItemsSource="{Binding ThemeOptions}"
-                          SelectedIndex="{Binding SelectedThemeIndex}"
-                          MinWidth="220"/>
-              </StackPanel>
+					<ItemsControl ItemsSource="{Binding CatalogApplications}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<WrapPanel Orientation="Horizontal"/>
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
 
-              <StackPanel Spacing="6">
-                <TextBlock Text="Папка установки"
-                           Foreground="{DynamicResource TextPrimaryBrush}"
-                           FontWeight="SemiBold"/>
-                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
-                  <TextBox Grid.Column="0"
-                           Classes="SettingsInput"
-                           Text="{Binding InstallationFolderPath}"
-                           Watermark="Выберите папку..."
-                           MinWidth="260"/>
-                  <Button Grid.Column="1"
-                          Classes="LaunchButton"
-                          Content="Обзор..."
-                          Width="110"
-                          Click="BrowseFolder_OnClick"/>
-                </Grid>
-              </StackPanel>
-            </StackPanel>
-          </Border>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="viewModels:AppCardViewModel">
+                <controls:AppCardControl />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
         </StackPanel>
       </ScrollViewer>
 
-      <StackPanel Orientation="Horizontal"
-                  HorizontalAlignment="Right"
-                  VerticalAlignment="Top"
-                  Margin="0,8,12,0"
-                  Spacing="4">
-        <Button Classes="WindowControlButton" Click="Minimize_OnClick">
-          <TextBlock Text="—"
-                     FontSize="14"
-                     Foreground="{DynamicResource TextPrimaryBrush}"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center"/>
-        </Button>
+			<ScrollViewer IsVisible="{Binding IsSettingsSectionVisible}"
+						  VerticalScrollBarVisibility="Auto"
+						  Margin="0,50,0,0">
+				<StackPanel Margin="32" Spacing="12">
+					<TextBlock Text="Настройки"
+							   FontSize="22"
+							   FontWeight="SemiBold"
+							   Foreground="{DynamicResource TextPrimaryBrush}"/>
 
-        <Button Classes="WindowControlButton" Click="ToggleMaximize_OnClick">
-          <TextBlock Text="□"
-                     FontSize="12"
-                     Foreground="{DynamicResource TextPrimaryBrush}"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center"/>
-        </Button>
+					<Border Background="{DynamicResource PanelBackgroundBrush}" CornerRadius="10" Padding="16">
+						<StackPanel Spacing="12">
+							<StackPanel Spacing="6">
+								<TextBlock Text="Тема"
+										   Foreground="{DynamicResource TextPrimaryBrush}"
+										   FontWeight="SemiBold"/>
+								<ComboBox Classes="SettingsInput"
+										  ItemsSource="{Binding ThemeOptions}"
+										  SelectedIndex="{Binding SelectedThemeIndex}"
+										  MinWidth="220"/>
+							</StackPanel>
 
-        <Button Classes="WindowControlButton CloseButton" Click="Close_OnClick">
-          <TextBlock Text="✕"
-                     FontSize="12"
-                     Foreground="{DynamicResource TextPrimaryBrush}"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center"/>
-        </Button>
-      </StackPanel>
+							<StackPanel Spacing="6">
+								<TextBlock Text="Папка установки"
+										   Foreground="{DynamicResource TextPrimaryBrush}"
+										   FontWeight="SemiBold"/>
+								<Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+									<TextBox Grid.Column="0"
+											 Classes="SettingsInput"
+											 Text="{Binding InstallationFolderPath}"
+											 Watermark="Выберите папку..."
+											 MinWidth="260"/>
+									<Button Grid.Column="1"
+											Classes="LaunchButton"
+											Content="Обзор..."
+											Width="110"
+											Click="BrowseFolder_OnClick"/>
+								</Grid>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</StackPanel>
+			</ScrollViewer>
 
-    </Grid>
-  </Grid>
+			<StackPanel Orientation="Horizontal"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Top"
+						Margin="0,8,12,0"
+						Spacing="4">
+				<Button Classes="WindowControlButton" Click="Minimize_OnClick">
+					<TextBlock Text="—"
+							   FontSize="14"
+							   Foreground="{DynamicResource TextPrimaryBrush}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</Button>
+
+				<Button Classes="WindowControlButton" Click="ToggleMaximize_OnClick">
+					<TextBlock Text="□"
+							   FontSize="12"
+							   Foreground="{DynamicResource TextPrimaryBrush}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</Button>
+
+				<Button Classes="WindowControlButton CloseButton" Click="Close_OnClick">
+					<TextBlock Text="✕"
+							   FontSize="12"
+							   Foreground="{DynamicResource TextPrimaryBrush}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</Button>
+			</StackPanel>
+
+		</Grid>
+	</Grid>
 </Window>

@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LauncherGUI2.AppCard">
+	<StackPanel Width="172" Margin="8" Spacing="6">
+
+		<Border Classes="AppCardBorder"
+				Background="{DynamicResource CardBackgroundBrush}"
+				CornerRadius="10"
+				DoubleTapped="AppCard_OnDoubleTapped">
+			<Grid MinHeight="120">
+				<Image Source="{Binding IconApp}"
+					   Width="64"
+					   Height="64"
+					   Stretch="Uniform"/>
+			</Grid>
+		</Border>
+		<Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+			<TextBlock Grid.Column="0"
+					   Text="{Binding Name}"
+					   VerticalAlignment="Center"
+					   TextAlignment="Left"
+					   FontSize="15"
+					   FontWeight="Regular"
+					   Foreground="{DynamicResource TextPrimaryBrush}"
+					   TextTrimming="CharacterEllipsis"
+					   MaxWidth="132"/>
+			<Button Grid.Column="1" Classes="CardMenuButton">
+				<Button.Flyout>
+					<Flyout Placement="BottomEdgeAlignedRight">
+						<StackPanel MinWidth="170" Spacing="8" Margin="4">
+							<TextBlock Foreground="{DynamicResource TextPrimaryBrush}">
+								<Run Text="Версия: "/>
+								<Run Text="{Binding Version}"/>
+							</TextBlock>
+							<Button Classes="DeleteButton"
+									Command="{Binding $parent[Window].DataContext.DeleteApplicationCommand}"
+									CommandParameter="{Binding}"
+									Content="Удалить"
+									Background="{DynamicResource DangerBrush}"/>
+						</StackPanel>
+					</Flyout>
+				</Button.Flyout>
+				<TextBlock Text="⋯"
+						   FontSize="18"
+						   Foreground="{DynamicResource TextPrimaryBrush}"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"/>
+			</Button>
+		</Grid>
+
+		<Button Classes="LaunchButton"
+				Content="Запустить"
+				Command="{Binding $parent[Window].DataContext.LaunchApplicationCommand}"
+				CommandParameter="{Binding}"/>
+	</StackPanel>
+</UserControl>
