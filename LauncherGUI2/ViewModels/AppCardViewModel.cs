@@ -1,5 +1,7 @@
 ﻿using Avalonia.Media.Imaging;
 using LauncherGUI.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace LauncherGUI.ViewModels;
 
@@ -8,13 +10,21 @@ namespace LauncherGUI.ViewModels;
 /// </summary>
 public class AppCardViewModel : ViewModelBase
 {
+    private readonly Action<AppCardViewModel> _deleteAction;
+    private readonly Func<AppCardViewModel, Task> _launchAction;
+    private readonly Func<AppCardViewModel, Task> _installAction;
+
     private bool _installed;
     private bool _available;
     private bool _isInstalling;
     private int _installProgress;
     private double _spinnerAngle;
 
-    public AppCardViewModel(AppEntry model)
+    public AppCardViewModel(
+        AppEntry model,
+        Action<AppCardViewModel> deleteAction,
+        Func<AppCardViewModel, Task> launchAction,
+        Func<AppCardViewModel, Task> installAction)
     {
         Name = model.Name;
         Version = model.Version;
@@ -24,6 +34,14 @@ public class AppCardViewModel : ViewModelBase
 
         _available = model.Available;
         _installed = model.Installed;
+
+        _deleteAction = deleteAction;
+        _launchAction = launchAction;
+        _installAction = installAction;
+
+        DeleteCommand = new RelayCommand(_ => _deleteAction(this));
+        LaunchCommand = new RelayCommand(async _ => await _launchAction(this));
+        InstallCommand = new RelayCommand(async _ => await _installAction(this));
     }
 
     public string Name { get; }
@@ -31,6 +49,10 @@ public class AppCardViewModel : ViewModelBase
     public string ExecutablePath { get; }
     public string IconPath { get; }
     public Bitmap IconApp { get; }
+
+    public RelayCommand DeleteCommand { get; }
+    public RelayCommand LaunchCommand { get; }
+    public RelayCommand InstallCommand { get; }
 
     public bool Installed
     {
@@ -106,7 +128,7 @@ public class AppCardViewModel : ViewModelBase
         get => _spinnerAngle;
         set
         {
-            if (System.Math.Abs(_spinnerAngle - value) < 0.001) return;
+            if (Math.Abs(_spinnerAngle - value) < 0.001) return;
             _spinnerAngle = value;
             RaisePropertyChanged();
         }
