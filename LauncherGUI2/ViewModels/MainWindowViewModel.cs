@@ -41,7 +41,7 @@ public class MainWindowViewModel : ViewModelBase
         _userSettingsService = userSettingsService;
 
         var allCards = config.Applications
-            .Select(app => new AppCardViewModel(app))
+            .Select(app => new AppCardViewModel(app, DeleteApplication, LaunchApplicationAsync, InstallApplicationAsync))
             .ToList();
 
         InstalledApplications = new ObservableCollection<AppCardViewModel>(
@@ -50,10 +50,7 @@ public class MainWindowViewModel : ViewModelBase
         CatalogApplications = new ObservableCollection<AppCardViewModel>(
             allCards.Where(app => !app.Installed));
 
-        DeleteApplicationCommand = new RelayCommand(DeleteApplication);
-        LaunchApplicationCommand = new RelayCommand(LaunchApplication);
         SwitchSectionCommand = new RelayCommand(SwitchSection);
-        InstallApplicationCommand = new RelayCommand(InstallApplication);
 
         // Источник для ComboBox выбора темы.
         ThemeOptions = ["Темная", "Светлая"];
@@ -70,10 +67,7 @@ public class MainWindowViewModel : ViewModelBase
     /// <summary>Apps shown on installation page (both available and unavailable).</summary>
     public ObservableCollection<AppCardViewModel> CatalogApplications { get; }
 
-    public RelayCommand DeleteApplicationCommand { get; }
-    public RelayCommand LaunchApplicationCommand { get; }
     public RelayCommand SwitchSectionCommand { get; }
-    public RelayCommand InstallApplicationCommand { get; }
 
     /// <summary>
     /// Варианты темы для выпадающего списка.
@@ -130,17 +124,19 @@ public class MainWindowViewModel : ViewModelBase
     public bool IsSecuritySectionVisible => IsSecuritySectionSelected;
     public bool IsSettingsSectionVisible => IsSettingsSectionSelected;
 
-    private void DeleteApplication(object? parameter)
+    private void DeleteApplication(AppCardViewModel app)
     {
-        if (parameter is AppCardViewModel app && InstalledApplications.Contains(app))
+        if (!InstalledApplications.Contains(app))
         {
-            InstalledApplications.Remove(app);
-            app.Installed = false;
+            return;
+        }
 
-            if (!CatalogApplications.Contains(app))
-            {
-                CatalogApplications.Add(app);
-            }
+        InstalledApplications.Remove(app);
+        app.Installed = false;
+
+        if (!CatalogApplications.Contains(app))
+        {
+            CatalogApplications.Add(app);
         }
     }
 
@@ -172,9 +168,9 @@ public class MainWindowViewModel : ViewModelBase
         RaisePropertyChanged(nameof(IsSettingsSectionVisible));
     }
 
-    private async void InstallApplication(object? parameter)
+    private async Task InstallApplicationAsync(AppCardViewModel app)
     {
-        if (parameter is not AppCardViewModel app || !CatalogApplications.Contains(app) || !app.IsInstallable || app.IsInstalling)
+        if (!CatalogApplications.Contains(app) || !app.IsInstallable || app.IsInstalling)
         {
             return;
         }
@@ -207,9 +203,9 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
-    private async void LaunchApplication(object? parameter)
+    private async Task LaunchApplicationAsync(AppCardViewModel app)
     {
-        if (parameter is not AppCardViewModel app || string.IsNullOrWhiteSpace(app.ExecutablePath))
+        if (string.IsNullOrWhiteSpace(app.ExecutablePath))
         {
             return;
         }

@@ -80,8 +80,7 @@
               </TextBlock>
               <Button Classes="DeleteButton"
                       IsVisible="{Binding Installed}"
-                      Command="{Binding $parent[Window].DataContext.DeleteApplicationCommand}"
-                      CommandParameter="{Binding}"
+                      Command="{Binding DeleteCommand}"
                       Content="Удалить"
                       Background="{DynamicResource DangerBrush}"/>
             </StackPanel>
@@ -98,8 +97,7 @@
     <Button Classes="LaunchButton"
             Content="Запустить"
             IsVisible="{Binding Installed}"
-            Command="{Binding $parent[Window].DataContext.LaunchApplicationCommand}"
-            CommandParameter="{Binding}"/>
+            Command="{Binding LaunchCommand}"/>
 
     <Button Classes="LaunchButton"
             Content="Установить"
@@ -107,7 +105,6 @@
             Foreground="{DynamicResource TextPrimaryBrush}"
             IsVisible="{Binding IsInstallButtonVisible}"
             IsEnabled="{Binding IsInstallButtonEnabled}"
-            Command="{Binding $parent[Window].DataContext.InstallApplicationCommand}"
-            CommandParameter="{Binding}"/>
+            Command="{Binding InstallCommand}"/>
   </StackPanel>
 </UserControl>

@@ -13,14 +13,11 @@ public partial class AppCardControl : UserControl
 
     private void AppCard_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
-        if (DataContext is not AppCardViewModel app || !app.Installed)
+        if (DataContext is not AppCardViewModel app || !app.Installed || !app.LaunchCommand.CanExecute(null))
         {
             return;
         }
 
-        if (VisualRoot is Window { DataContext: MainWindowViewModel vm } && vm.LaunchApplicationCommand.CanExecute(app))
-        {
-            vm.LaunchApplicationCommand.Execute(app);
-        }
+        app.LaunchCommand.Execute(null);
     }
 }

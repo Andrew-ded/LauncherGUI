@@ -32,19 +32,6 @@ public partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Запускает установленное приложение по двойному клику карточки.
-    /// </summary>
-    private void AppCard_OnDoubleTapped(object? sender, TappedEventArgs e)
-    {
-        if (sender is Control control &&
-            control.DataContext is AppCardViewModel card &&
-            DataContext is MainWindowViewModel vm)
-        {
-            vm.LaunchApplicationCommand.Execute(card);
-        }
-    }
-
-    /// <summary>
     /// Сворачивает окно в панель задач.
     /// </summary>
     private void Minimize_OnClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

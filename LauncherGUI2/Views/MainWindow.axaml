@@ -170,6 +170,10 @@
       <Setter Property="Background" Value="{DynamicResource CatalogCardBackgroundBrush}"/>
     </Style>
 
+    <Style Selector="Border.CardSurface.Catalog">
+      <Setter Property="Background" Value="{DynamicResource CatalogCardBackgroundBrush}"/>
+    </Style>
+
     <!-- Тело карточки: не установлено -->
     <Style Selector="Grid.CatalogCardBody.NotInstalled">
       <Setter Property="Opacity" Value="0.9"/>
