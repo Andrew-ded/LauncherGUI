@@ -1,0 +1,113 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModels="clr-namespace:LauncherGUI.ViewModels"
+             x:Class="LauncherGUI.Views.Controls.AppCardControl"
+             x:DataType="viewModels:AppCardViewModel">
+  <StackPanel Width="172" Margin="8" Spacing="6">
+    <Border Classes="AppCardBorder CardSurface"
+            Classes.Catalog="{Binding IsNotInstalled}"
+            Padding="0"
+            Background="{DynamicResource CardBackgroundBrush}"
+            CornerRadius="10"
+            ClipToBounds="True"
+            DoubleTapped="AppCard_OnDoubleTapped">
+      <Grid>
+        <Grid Classes="CatalogCardBody"
+              Classes.NotInstalled="{Binding IsNotInstalled}"
+              Classes.Installing="{Binding IsInstalling}"
+              Classes.Unavailable="{Binding IsUnavailable}"
+              Margin="16"
+              MinHeight="88">
+          <Image Source="{Binding IconApp}"
+                 Width="64"
+                 Height="64"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Stretch="Uniform"
+                 Opacity="0.8"/>
+        </Grid>
+
+        <Border IsVisible="{Binding IsInstallingOverlayVisible}"
+                Background="{DynamicResource InstallingOverlayBrush}"
+                CornerRadius="10"
+                ClipToBounds="True">
+          <StackPanel HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Spacing="8">
+            <ProgressBar Width="124"
+                         HorizontalAlignment="Center"
+                         Margin="6,0"
+                         IsIndeterminate="True"/>
+          </StackPanel>
+        </Border>
+
+        <Border IsVisible="{Binding IsLockOverlayVisible}"
+                Background="{DynamicResource UnavailableOverlayBrush}"
+                CornerRadius="10">
+          <StackPanel HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Spacing="6">
+            <PathIcon Width="24"
+                      Height="24"
+                      Foreground="{DynamicResource TextPrimaryBrush}"
+                      Data="M12 2a4 4 0 0 1 4 4v2h.75A2.25 2.25 0 0 1 19 10.25v8.5A2.25 2.25 0 0 1 16.75 21h-9.5A2.25 2.25 0 0 1 5 18.75v-8.5A2.25 2.25 0 0 1 7.25 8H8V6a4 4 0 0 1 4-4Zm2.5 6V6a2.5 2.5 0 0 0-5 0v2h5Z" />
+            <TextBlock Text="Недоступно"
+                       Foreground="{DynamicResource TextPrimaryBrush}"
+                       FontSize="12"
+                       FontWeight="SemiBold" />
+          </StackPanel>
+        </Border>
+      </Grid>
+    </Border>
+
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+      <TextBlock Grid.Column="0"
+                 Text="{Binding Name}"
+                 VerticalAlignment="Center"
+                 TextAlignment="Left"
+                 FontSize="15"
+                 FontWeight="Regular"
+                 Foreground="{DynamicResource TextPrimaryBrush}"
+                 TextTrimming="CharacterEllipsis"
+                 MaxWidth="132"/>
+      <Button Grid.Column="1" Classes="CardMenuButton">
+        <Button.Flyout>
+          <Flyout Placement="BottomEdgeAlignedRight">
+            <StackPanel MinWidth="170" Spacing="8" Margin="4">
+              <TextBlock Foreground="{DynamicResource TextPrimaryBrush}">
+                <Run Text="Версия: "/>
+                <Run Text="{Binding Version}"/>
+              </TextBlock>
+              <Button Classes="DeleteButton"
+                      IsVisible="{Binding Installed}"
+                      Command="{Binding $parent[Window].DataContext.DeleteApplicationCommand}"
+                      CommandParameter="{Binding}"
+                      Content="Удалить"
+                      Background="{DynamicResource DangerBrush}"/>
+            </StackPanel>
+          </Flyout>
+        </Button.Flyout>
+        <TextBlock Text="⋯"
+                   FontSize="18"
+                   Foreground="{DynamicResource TextPrimaryBrush}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+      </Button>
+    </Grid>
+
+    <Button Classes="LaunchButton"
+            Content="Запустить"
+            IsVisible="{Binding Installed}"
+            Command="{Binding $parent[Window].DataContext.LaunchApplicationCommand}"
+            CommandParameter="{Binding}"/>
+
+    <Button Classes="LaunchButton"
+            Content="Установить"
+            Background="{DynamicResource PanelBackgroundBrush}"
+            Foreground="{DynamicResource TextPrimaryBrush}"
+            IsVisible="{Binding IsInstallButtonVisible}"
+            IsEnabled="{Binding IsInstallButtonEnabled}"
+            Command="{Binding $parent[Window].DataContext.InstallApplicationCommand}"
+            CommandParameter="{Binding}"/>
+  </StackPanel>
+</UserControl>
