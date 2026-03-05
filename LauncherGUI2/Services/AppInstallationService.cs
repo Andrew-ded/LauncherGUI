@@ -5,6 +5,18 @@ using System.Threading.Tasks;
 namespace LauncherGUI.Services;
 
 /// <summary>
+/// Service responsible for application installation workflow.
+/// </summary>
+public interface IAppInstallationService
+{
+    /// <summary>
+    /// Runs installation process and reports progress in range [0..100].
+    /// </summary>
+    Task InstallAsync(IProgress<int>? progress = null, CancellationToken cancellationToken = default);
+}
+
+
+/// <summary>
 /// Temporary installation service that simulates app setup.
 /// </summary>
 public class AppInstallationService : IAppInstallationService
